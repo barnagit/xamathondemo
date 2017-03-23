@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Xamarin.Forms;
+using XamathonDemo2.Pages;
 
 namespace XamathonDemo2
 {
@@ -9,7 +10,7 @@ namespace XamathonDemo2
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new TodoList();
+			MainPage = new MovieList();
 		}
 
 		protected override void OnStart ()

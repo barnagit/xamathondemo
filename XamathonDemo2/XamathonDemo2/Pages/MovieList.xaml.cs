@@ -8,16 +8,16 @@ namespace XamathonDemo2.Pages
 {
     public partial class MovieList : ContentPage
     {
-        MovieManager manager;
+        readonly MovieManager movieManager;
 
         public MovieList()
         {
             InitializeComponent();
 
-            manager = MovieManager.DefaultManager;
+            movieManager = MovieManager.DefaultManager;
 
             // OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
-            if (manager.IsOfflineEnabled &&
+            if (movieManager.IsOfflineEnabled &&
                 (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone))
             {
                 var syncButton = new Button
@@ -42,15 +42,15 @@ namespace XamathonDemo2.Pages
         // Data methods
         async Task AddItem(Movie item)
         {
-            await manager.SaveTaskAsync(item);
-            movieList.ItemsSource = await manager.GetMoviesAsync();
+            await movieManager.SaveItemAsync(item);
+            movieList.ItemsSource = await movieManager.GetMoviesAsync();
         }
 
         async Task CompleteItem(Movie item)
         {
             item.Done = true;
-            await manager.SaveTaskAsync(item);
-            movieList.ItemsSource = await manager.GetMoviesAsync();
+            await movieManager.SaveItemAsync(item);
+            movieList.ItemsSource = await movieManager.GetMoviesAsync();
         }
 
         public async void OnAdd(object sender, EventArgs e)
@@ -128,7 +128,7 @@ namespace XamathonDemo2.Pages
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
-                movieList.ItemsSource = await manager.GetMoviesAsync(syncItems);
+                movieList.ItemsSource = await movieManager.GetMoviesAsync(syncItems);
             }
         }
 

@@ -42,7 +42,8 @@
             </ViewCell.ContextActions>
             <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal" Padding="15,5,0,0">
               <StackLayout Padding="5,0,0,0" VerticalOptions="StartAndExpand" Orientation="Vertical">
-                <Label Text="{Binding Name}"  />
+                <Label Text="{Binding Title}"  />
+                <Label Text="{Binding ReleaseDate}"  />
               </StackLayout>
             </StackLayout>
           </ViewCell>

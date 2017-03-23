@@ -4,11 +4,8 @@ using Newtonsoft.Json;
 
 namespace XamathonDemo2.Data.Models
 {
-	public class Movie
-	{
-		[JsonProperty(PropertyName = "id")]
-		public string Id { get; set; }
-
+    public class Movie : EntityBase
+    {
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
 
@@ -22,13 +19,19 @@ namespace XamathonDemo2.Data.Models
         public string Writer { get; set; }
 
         [JsonProperty(PropertyName = "releasedate")]
-        public DateTime ReleaseDate { get; set; }
+        public string ReleaseDate { get; set; }
 
         [JsonProperty(PropertyName = "complete")]
-        public bool Done { get; set; }
+        protected string Complete { get; set; }
 
-        [Version]
-        public string Version { get; set; }
-	}
+        [JsonIgnore]
+        public bool Done
+        {
+            get
+            {
+                return (Complete == "1");
+            }
+            set { Complete = value ? "1" : "0"; }
+        }
+    }
 }
-

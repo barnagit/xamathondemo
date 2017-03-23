@@ -4,15 +4,10 @@ using Newtonsoft.Json;
 
 namespace XamathonDemo2.Data.Models
 {
-	public class User
+	public class User : EntityBase
 	{
-		[JsonProperty(PropertyName = "id")]
-		public String Id { get; set; }
+        [JsonProperty(PropertyName = "username")]
+        public string Username { get; set; }
 
-        [JsonProperty(PropertyName = "user")]
-        public string User { get; set; }
-
-        [Version]
-        public string Version { get; set; }
 	}
 }

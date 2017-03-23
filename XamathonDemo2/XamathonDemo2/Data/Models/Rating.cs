@@ -4,11 +4,8 @@ using Newtonsoft.Json;
 
 namespace XamathonDemo2.Data.Models
 {
-	public class Rating
+	public class Rating : EntityBase
 	{
-		[JsonProperty(PropertyName = "id")]
-		public string Id { get; set; }
-
         [JsonProperty(PropertyName = "userid")]
         public string UserId { get; set; }
 		
@@ -17,8 +14,5 @@ namespace XamathonDemo2.Data.Models
 		
 		[JsonProperty(PropertyName = "value")]
         public int Value { get; set; }
-
-        [Version]
-        public string Version { get; set; }
 	}
 }
