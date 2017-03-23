@@ -7,7 +7,7 @@ namespace XamathonDemo2.Data.Models
 	public class Movie
 	{
 		[JsonProperty(PropertyName = "id")]
-		public int Id { get; set; }
+		public string Id { get; set; }
 
         [JsonProperty(PropertyName = "title")]
         public string Title { get; set; }
