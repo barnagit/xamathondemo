@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "737363569737",
+    "firebase_url": "https://xamathondemo2firebase.firebaseio.com",
+    "project_id": "xamathondemo2firebase",
+    "storage_bucket": "xamathondemo2firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737363569737:android:3377aea0877f711f",
+        "android_client_info": {
+          "package_name": "com.xamarin.sample.XamathonDemo2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737363569737-q1gfd2a83p9nnmac86kpmfjiqp7i01oo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFE09vBFaHQG0HLkh4NML8jFQxID4mJp8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
