@@ -79,6 +79,7 @@ namespace XamathonDemo2.Data
 
         public async Task SaveItemAsync(MovieRating item)
         {
+            item.Rating.OldValue = item.Rating.Value;
             await RatingManager.DefaultManager.SaveItemAsync(item.Rating);
         }
     }

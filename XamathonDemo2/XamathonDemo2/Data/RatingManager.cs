@@ -46,5 +46,17 @@ namespace XamathonDemo2.Data
                 rating => rating.UserId == Globals.LoggedInUserId
                 , syncItems);
         }
+
+        protected override IEnumerable<Rating> OnItemsLoaded(IEnumerable<Rating> items)
+        {
+            if (items == null)
+                yield break;
+
+            foreach (var item in items)
+            {
+                item.OldValue = item.Value;
+                yield return item;
+            }
+        }
     }
 }

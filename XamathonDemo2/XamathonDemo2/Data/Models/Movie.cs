@@ -18,6 +18,9 @@ namespace XamathonDemo2.Data.Models
         [JsonProperty(PropertyName = "writer")]
         public string Writer { get; set; }
 
+        [JsonProperty(PropertyName = "imageurl")]
+        public string ImageUrl { get; set; }
+
         [JsonProperty(PropertyName = "releasedate")]
         public string ReleaseDate { get; set; }
 
