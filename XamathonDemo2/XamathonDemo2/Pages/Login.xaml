@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamathonDemo2.Pages.Login"
+             Title="Azure Login"
+             >
+  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+  <Grid RowSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <StackLayout Grid.Row="1">
+      <Label Text="Login as:"></Label>
+      <Entry x:Name="enUserNameForLogin"></Entry >
+      <Button Text="Login" Clicked="OnLogin"></Button>
+    </StackLayout>
+    
+    
+  </Grid>
+  
+  
+</ContentPage>

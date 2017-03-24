@@ -6,7 +6,7 @@ namespace XamathonDemo2.Data.Models
 {
 	public class User : EntityBase
 	{
-        [JsonProperty(PropertyName = "username")]
+        [JsonProperty(PropertyName = "user")]
         public string Username { get; set; }
 
 	}

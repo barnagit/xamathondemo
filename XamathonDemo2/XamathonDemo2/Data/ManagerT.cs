@@ -31,7 +31,7 @@ namespace XamathonDemo2.Data
         private readonly MobileServiceClient client;
 
 #if OFFLINE_SYNC_ENABLED
-        IMobileServiceSyncTable<T> movieTable;
+        IMobileServiceSyncTable<T> table;
 #else
         private readonly IMobileServiceTable<T> table;
 #endif
@@ -49,7 +49,7 @@ namespace XamathonDemo2.Data
             //Initializes the SyncContext using the default IMobileServiceSyncHandler.
             this.client.SyncContext.InitializeAsync(store);
 
-            this.movieTable = client.GetSyncTable<T>();
+            this.table = client.GetSyncTable<T>();
 #else
             this.table = client.GetTable<T>();
 #endif
@@ -137,11 +137,11 @@ namespace XamathonDemo2.Data
             {
                 await this.client.SyncContext.PushAsync();
 
-                await this.movieTable.PullAsync(
+                await this.table.PullAsync(
                     //The first parameter is a query name that is used internally by the client SDK to implement incremental sync.
                     //Use a different query name for each unique query in your program
-                    "allMovies",
-                    this.movieTable.CreateQuery());
+                    "all"+ (typeof(T)).Name +"s",
+                    this.table.CreateQuery());
             }
             catch (MobileServicePushFailedException exc)
             {
