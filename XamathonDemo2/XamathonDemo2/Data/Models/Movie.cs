@@ -21,6 +21,9 @@ namespace XamathonDemo2.Data.Models
         [JsonProperty(PropertyName = "imageurl")]
         public string ImageUrl { get; set; }
 
+        [JsonProperty(PropertyName = "imdburl")]
+        public string ImdbUrl { get; set; }
+
         [JsonProperty(PropertyName = "releasedate")]
         public string ReleaseDate { get; set; }
 

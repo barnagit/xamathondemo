@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 using XamathonDemo2.Data.Models;
 using XamathonDemo2.Data;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace XamathonDemo2.Pages
 {
@@ -51,6 +52,19 @@ namespace XamathonDemo2.Pages
         protected override void OnCurrentPageChanged()
         {
             base.OnCurrentPageChanged();
+        }
+
+        void OnImageTapGestureRecognizerTapped(object sender, EventArgs args)
+        {
+            var currentMovieRating = this.SelectedItem as MovieRating;
+            if ((currentMovieRating != null) && !string.IsNullOrWhiteSpace(currentMovieRating.Movie.ImdbUrl))
+            {
+                Uri url;
+                if (Uri.TryCreate(currentMovieRating.Movie.ImdbUrl, UriKind.Absolute, out url))
+                {
+                    Device.OpenUri(url);
+                }
+            }
         }
 
         async void OnNotSeenButtonClicked(object sender, EventArgs args)
