@@ -12,8 +12,8 @@
       <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>
 
-    <Image Grid.Column="0"
-           Source="{extensions:ImageResource InfoFrame.Controls.Images.Rating.StarEmpty.png}">
+    <Image Grid.Column="0" IsVisible="True"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
       <Image.WidthRequest>
         <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
       </Image.WidthRequest>
@@ -36,7 +36,7 @@
         <TapGestureRecognizer Tapped="ItemTapped"/>
       </Image.GestureRecognizers>
     </Image>
-    <Image Grid.Column="1"
+    <Image Grid.Column="1" IsVisible="True"
            Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
       <Image.WidthRequest>
         <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
@@ -60,7 +60,7 @@
         <TapGestureRecognizer Tapped="ItemTapped"/>
       </Image.GestureRecognizers>
     </Image>
-    <Image Grid.Column="2"
+    <Image Grid.Column="2" IsVisible="True"
            Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
       <Image.WidthRequest>
         <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
@@ -84,7 +84,7 @@
         <TapGestureRecognizer Tapped="ItemTapped"/>
       </Image.GestureRecognizers>
     </Image>
-    <Image Grid.Column="3"
+    <Image Grid.Column="3" IsVisible="True"
            Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
       <Image.WidthRequest>
         <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
@@ -108,7 +108,7 @@
         <TapGestureRecognizer Tapped="ItemTapped"/>
       </Image.GestureRecognizers>
     </Image>
-    <Image Grid.Column="4"
+    <Image Grid.Column="4" IsVisible="True"
            Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
       <Image.WidthRequest>
         <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>

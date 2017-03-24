@@ -11,8 +11,11 @@ namespace XamathonDemo2
         static App instance;
 		public App ()
 		{
-			// The root page of your application
-			MainPage = new Login();
+            // The root page of your application
+            if (Globals.LoggedInUserId != null)
+                MainPage = new MovieRatingCarouselPage();
+            else
+			    MainPage = new Login();
             instance = this;
 		}
 

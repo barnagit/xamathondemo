@@ -19,7 +19,10 @@ namespace InfoFrame.Controls
         public int Value
         {
             get { return (int)GetValue(ValueProperty); }
-            set { SetValue(ValueProperty, value); }
+            set
+            {
+                SetValue(ValueProperty, value);
+            }
         }
 
         /// <summary>
@@ -39,6 +42,14 @@ namespace InfoFrame.Controls
         {
             ((RatingControl)bindable).ValueChanged((int)newValue);
         }
+
+        //protected override void OnBindingContextChanged()
+        //{
+        //    base.OnBindingContextChanged();
+
+        //    if (this.BindingContext != null)
+        //        ValueChanged(this.Value);
+        //}
 
         /// <summary>
         /// Set the visibility of items.

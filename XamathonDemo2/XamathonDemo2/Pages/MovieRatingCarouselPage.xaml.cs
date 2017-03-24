@@ -42,6 +42,7 @@ namespace XamathonDemo2.Pages
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
                 var unratedMovies = await movieRatingManager.GetUnratedAsync(syncItems);
+                // unratedMovies.Add(new MovieRating() { Movie = new Movie(), Rating = new Rating() });
 
                 this.ItemsSource = unratedMovies;
             }
