@@ -10,7 +10,7 @@ namespace XamathonDemo2
 		public App ()
 		{
 			// The root page of your application
-			MainPage = new MovieList();
+			MainPage = new MovieRatingCarouselPage();
 		}
 
 		protected override void OnStart ()

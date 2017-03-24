@@ -43,6 +43,9 @@
       <DependentUpon>MovieList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\Models\MovieRating.cs" />
+    <Compile Include="Pages\MovieRatingCarouselPage.xaml.cs">
+      <DependentUpon>MovieRatingCarouselPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App.cs" />
     <Compile Include="Data\Models\Movie.cs" />
@@ -100,6 +103,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>
       </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\MovieRatingCarouselPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
