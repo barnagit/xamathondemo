@@ -53,6 +53,14 @@ namespace XamathonDemo2.Pages
             base.OnCurrentPageChanged();
         }
 
+        async void OnNotSeenButtonClicked(object sender, EventArgs args)
+        {
+            var currentMovieRating = this.SelectedItem as MovieRating;
+            currentMovieRating.Rating.Value = -1;
+
+            await SaveAndRemoveItem(currentMovieRating);
+        }
+
         MovieRating previousSelectedItem = null;
 
         protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)
@@ -86,13 +94,18 @@ namespace XamathonDemo2.Pages
             if ((oldValue != null) && oldValue.Rating.ValueChanged)
             {
                 //previousSelectedItem = null;
-                await movieRatingManager.SaveItemAsync(oldValue);
-
-                var dataSource = this.ItemsSource as System.Collections.ObjectModel.ObservableCollection<MovieRating>;
-
-                if (dataSource != null)
-                    dataSource.Remove(oldValue);
+                SaveAndRemoveItem(oldValue);
             }
+        }
+
+        private async Task SaveAndRemoveItem(MovieRating item)
+        {
+            await movieRatingManager.SaveItemAsync(item);
+
+            var dataSource = this.ItemsSource as System.Collections.ObjectModel.ObservableCollection<MovieRating>;
+
+            if (dataSource != null)
+                dataSource.Remove(item);
         }
 
         private class ActivityIndicatorScope : IDisposable

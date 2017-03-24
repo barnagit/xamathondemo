@@ -20,11 +20,13 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Text="{Binding Movie.Title}" FontSize="Medium" HorizontalOptions="Center" />
                     <Label Grid.Row="1" Text="{Binding Movie.ReleaseDate}" FontSize="Medium" HorizontalOptions="Center" />
                     <Image Grid.Row="2" Aspect = "AspectFill" Source="{Binding Movie.ImageUrl}" />
-                    <local:RatingControl Grid.Row="3" x:Name="rating" Value="{Binding Rating.Value, Mode=TwoWay}"/>
+                    <Button Grid.Row="3" Text="Nem láttam." Clicked="OnNotSeenButtonClicked" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                    <local:RatingControl Grid.Row="4" x:Name="rating" Value="{Binding Rating.Value, Mode=TwoWay}"/>
                 </Grid>
             </ContentPage>
         </DataTemplate>
