@@ -28,16 +28,27 @@ namespace XamathonDemo2.Pages
 
         public async void OnLogin(object sender, EventArgs e)
         {
+            lbLoginFailed.Text = String.Empty;
+
             //var movie = new Movie { Title = newItemName.Text };
             //await AddItem(movie);
 
             var user = await userManager.GetUserByName(enUserNameForLogin.Text);
 
+
             // az alábbi kódért nem válalok felelősséget
             // nem én voltam, nem is vagyok informatikus
             // hanem bölcsész. ha olvasnád... :)
-            Globals.LoggedInUserId = user.Id;
-            App.ChangeMain(new MovieRatingCarouselPage());
+
+            if (user != null)
+            {
+                Globals.LoggedInUserId = user.Id;
+                App.ChangeMain(new MovieRatingCarouselPage());
+            }
+            else
+            {
+                lbLoginFailed.Text = "Login Failed!";
+            }
 ;        }
     }
 }

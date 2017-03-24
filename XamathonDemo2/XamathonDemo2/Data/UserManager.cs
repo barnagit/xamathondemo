@@ -33,8 +33,7 @@ namespace XamathonDemo2.Data
                 if (u.Username == username) return u;
             }
 
-            // fúj!
-            return new User();
+            return null;
         }
 
     }

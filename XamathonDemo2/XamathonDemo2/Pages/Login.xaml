@@ -16,6 +16,9 @@
       <Label Text="Login as:"></Label>
       <Entry x:Name="enUserNameForLogin"></Entry >
       <Button Text="Login" Clicked="OnLogin"></Button>
+      <StackLayout>
+        <Label x:Name="lbLoginFailed" Text="" TextColor="Red"></Label>
+      </StackLayout>
     </StackLayout>
     
     
