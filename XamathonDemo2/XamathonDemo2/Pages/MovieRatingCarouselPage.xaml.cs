@@ -8,6 +8,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using XamathonDemo2.Data.Models;
 using XamathonDemo2.Data;
+using System.Runtime.CompilerServices;
 
 namespace XamathonDemo2.Pages
 {
@@ -43,6 +44,53 @@ namespace XamathonDemo2.Pages
                 var unratedMovies = await movieRatingManager.GetUnratedAsync(syncItems);
 
                 this.ItemsSource = unratedMovies;
+            }
+        }
+
+        protected override void OnCurrentPageChanged()
+        {
+            base.OnCurrentPageChanged();
+        }
+
+        MovieRating previousSelectedItem = null;
+
+        protected override void OnPropertyChanging([CallerMemberName] string propertyName = null)
+        {
+            if (propertyName == "SelectedItem")
+            {
+                previousSelectedItem = this.SelectedItem as MovieRating;
+            }
+            base.OnPropertyChanging(propertyName);
+        }
+
+        protected override async void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            MovieRating movieRating = null;
+            if (propertyName == "SelectedItem")
+            {
+                movieRating = previousSelectedItem;
+            }
+            base.OnPropertyChanged(propertyName);
+
+            if (propertyName == "SelectedItem")
+            {
+                var selectedMovieRating = this.SelectedItem as MovieRating;
+                SelectedItemChanged(movieRating, selectedMovieRating);
+            }
+        }
+
+        protected virtual async void SelectedItemChanged(MovieRating oldValue, MovieRating newValue)
+        {
+            // if the user changed the rating while the previous item was on screen
+            if ((oldValue != null) && oldValue.Rating.ValueChanged)
+            {
+                //previousSelectedItem = null;
+                await movieRatingManager.SaveItemAsync(oldValue);
+
+                var dataSource = this.ItemsSource as System.Collections.ObjectModel.ObservableCollection<MovieRating>;
+
+                if (dataSource != null)
+                    dataSource.Remove(oldValue);
             }
         }
 

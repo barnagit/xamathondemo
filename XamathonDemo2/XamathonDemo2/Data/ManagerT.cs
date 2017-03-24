@@ -103,7 +103,7 @@ namespace XamathonDemo2.Data
                     items = items.Where(filter.Compile());
                 }
 
-                return new ObservableCollection<T>(items);
+                return new ObservableCollection<T>(OnItemsLoaded(items));
             }
             catch (MobileServiceInvalidOperationException msioe)
             {
@@ -114,6 +114,11 @@ namespace XamathonDemo2.Data
                 Debug.WriteLine(@"Sync error: {0}", e.Message);
             }
             return null;
+        }
+
+        protected virtual IEnumerable<T> OnItemsLoaded(IEnumerable<T> items)
+        {
+            return items;
         }
 
         public async Task SaveItemAsync(T item)
