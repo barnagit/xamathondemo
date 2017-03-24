@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using XamathonDemo2.Data.Models;
@@ -8,16 +9,20 @@ namespace XamathonDemo2.Pages
 {
     public partial class MovieList : ContentPage
     {
-        readonly MovieManager movieManager;
+        //readonly MovieManager movieManager;
+        //readonly RatingManager ratingManager;
+        readonly MovieRatingManager movieRatingManager;
 
         public MovieList()
         {
             InitializeComponent();
 
-            movieManager = MovieManager.DefaultManager;
+            //movieManager = MovieManager.DefaultManager;
+            //ratingManager = RatingManager.DefaultManager;
+            movieRatingManager = MovieRatingManager.DefaultManager;
 
             // OnPlatform<T> doesn't currently support the "Windows" target platform, so we have this check here.
-            if (movieManager.IsOfflineEnabled &&
+            if (movieRatingManager.IsOfflineEnabled &&
                 (Device.OS == TargetPlatform.Windows || Device.OS == TargetPlatform.WinPhone))
             {
                 var syncButton = new Button
@@ -40,23 +45,23 @@ namespace XamathonDemo2.Pages
         }
 
         // Data methods
-        async Task AddItem(Movie item)
+        async Task AddItem(MovieRating item)
         {
-            await movieManager.SaveItemAsync(item);
-            movieList.ItemsSource = await movieManager.GetMoviesAsync();
+            await movieRatingManager.SaveItemAsync(item);
+            movieList.ItemsSource = await movieRatingManager.GetUnratedAsync();
         }
 
-        async Task CompleteItem(Movie item)
+        async Task CompleteItem(MovieRating item)
         {
-            item.Done = true;
-            await movieManager.SaveItemAsync(item);
-            movieList.ItemsSource = await movieManager.GetMoviesAsync();
+            item.Movie.Done = true;
+            await movieRatingManager.SaveItemAsync(item);
+            movieList.ItemsSource = await movieRatingManager.GetUnratedAsync();
         }
 
         public async void OnAdd(object sender, EventArgs e)
         {
-            var movie = new Movie { Title = newItemName.Text };
-            await AddItem(movie);
+            //var movie = new Movie { Title = newItemName.Text };
+            //await AddItem(movie);
 
             newItemName.Text = string.Empty;
             newItemName.Unfocus();
@@ -65,20 +70,20 @@ namespace XamathonDemo2.Pages
         // Event handlers
         public async void OnSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var movie = e.SelectedItem as Movie;
-            if (Device.OS != TargetPlatform.iOS && movie != null)
+            var movieRating = e.SelectedItem as MovieRating;
+            if (Device.OS != TargetPlatform.iOS && movieRating != null)
             {
                 // Not iOS - the swipe-to-delete is discoverable there
                 if (Device.OS == TargetPlatform.Android)
                 {
-                    await DisplayAlert(movie.Title, "Press-and-hold to complete task " + movie.Title, "Got it!");
+                    await DisplayAlert(movieRating.Movie.Title, "Press-and-hold to complete task " + movieRating.Movie.Title, "Got it!");
                 }
                 else
                 {
                     // Windows, not all platforms support the Context Actions yet
-                    if (await DisplayAlert("Mark completed?", "Do you wish to complete " + movie.Title + "?", "Complete", "Cancel"))
+                    if (await DisplayAlert("Mark completed?", "Do you wish to complete " + movieRating.Movie.Title + "?", "Complete", "Cancel"))
                     {
-                        await CompleteItem(movie);
+                        await CompleteItem(movieRating);
                     }
                 }
             }
@@ -91,7 +96,7 @@ namespace XamathonDemo2.Pages
         public async void OnComplete(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            var movie = mi.CommandParameter as Movie;
+            var movie = mi.CommandParameter as MovieRating;
             await CompleteItem(movie);
         }
 
@@ -128,7 +133,9 @@ namespace XamathonDemo2.Pages
         {
             using (var scope = new ActivityIndicatorScope(syncIndicator, showActivityIndicator))
             {
-                movieList.ItemsSource = await movieManager.GetMoviesAsync(syncItems);
+                var unratedMovies = await movieRatingManager.GetUnratedAsync(syncItems);
+
+                movieList.ItemsSource = unratedMovies;
             }
         }
 

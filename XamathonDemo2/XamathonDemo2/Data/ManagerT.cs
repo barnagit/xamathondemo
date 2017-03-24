@@ -87,18 +87,20 @@ namespace XamathonDemo2.Data
                     await this.SyncAsync();
                 }
 #endif
-                IEnumerable<T> items;
+                IEnumerable<T> items = await table
+                        .ToEnumerableAsync();
 
                 if (filter == null)
                 {
-                    items = await table
-                        .ToEnumerableAsync();
+                    //items = await table
+                    //    .ToEnumerableAsync();
                 }
                 else
                 {
-                    items = await table
-                        .Where(filter)
-                        .ToEnumerableAsync();
+                    //items = await table
+                    //    .Where(filter)
+                    //    .ToEnumerableAsync();
+                    items = items.Where(filter.Compile());
                 }
 
                 return new ObservableCollection<T>(items);

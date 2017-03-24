@@ -24,11 +24,11 @@ using Microsoft.WindowsAzure.MobileServices.Sync;
 
 namespace XamathonDemo2.Data
 {
-    public partial class MovieManager : Manager<Movie>
+    public partial class RatingManager : Manager<Rating>
     {
-        static MovieManager defaultInstance = new MovieManager();
+        static RatingManager defaultInstance = new RatingManager();
 
-        public static MovieManager DefaultManager
+        public static RatingManager DefaultManager
         {
             get
             {
@@ -40,10 +40,10 @@ namespace XamathonDemo2.Data
             }
         }
 
-        public async Task<ObservableCollection<Movie>> GetMoviesAsync(bool syncItems = false)
+        public async Task<ObservableCollection<Rating>> GetRatingsAsync(bool syncItems = false)
         {
             return await base.GetItemsAsync(
-                movie => !movie.Done
+                rating => rating.UserId == Globals.LoggedInUserId
                 , syncItems);
         }
     }

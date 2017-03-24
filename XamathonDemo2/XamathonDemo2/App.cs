@@ -15,7 +15,9 @@ namespace XamathonDemo2
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+            // Handle when your app starts
+
+            Globals.LoggedInUserId = "50534869-116d-46ad-8b6a-5ca0a5fe6036";
 		}
 
 		protected override void OnSleep ()
