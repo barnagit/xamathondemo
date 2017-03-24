@@ -1,25 +1,43 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamathonDemo2.Pages.MovieRatingCarouselPage"
-             Title="CarouselPage">
-  <ContentPage>
-    <StackLayout>
-      <Label Text="This is a CarouselPage, you can swipe left and right to browse through additional pages." Margin="5" />
-      <Label Text="Red" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5" />
-      <BoxView Color="Red" VerticalOptions="FillAndExpand" />
-    </StackLayout>
-  </ContentPage>
-  <ContentPage>
-    <StackLayout>
-      <Label Text="Green" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5"  />
-      <BoxView Color="Green" VerticalOptions="FillAndExpand" />
-    </StackLayout>
-  </ContentPage>
-  <ContentPage>
-    <StackLayout>
-      <Label Text="Blue" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Margin="5"  />
-      <BoxView Color="Blue" VerticalOptions="FillAndExpand" />
-    </StackLayout>
-  </ContentPage>
+             xmlns:local="clr-namespace:InfoFrame.Controls;assembly=XamathonDemo2"
+             x:Class="XamathonDemo2.Pages.MovieRatingCarouselPage">
+    <ContentPage>
+        <ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+    </ContentPage>
+    <CarouselPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage>
+                <StackLayout>
+                    <Label Text="{Binding Movie.Title}" FontSize="Medium" HorizontalOptions="Center" />
+                    <Label Text="{Binding Movie.ReleaseDate}" FontSize="Medium" HorizontalOptions="Center" />
+                    <local:RatingControl x:Name="rating" Value="{Binding Rating.Value}"/>
+                </StackLayout>
+            </ContentPage>
+        </DataTemplate>
+    </CarouselPage.ItemTemplate>
+    <!--<ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
+        </ContentPage.Padding>
+        <StackLayout>
+            <Label Text="Red" FontSize="Medium" HorizontalOptions="Center" />
+            <BoxView Color="Red" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage>
+    <ContentPage>
+        <ContentPage.Padding>
+            <OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
+        </ContentPage.Padding>
+        <StackLayout>
+            <Label Text="Green" FontSize="Medium" HorizontalOptions="Center" />
+            <BoxView Color="Green" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage>-->
 </CarouselPage>
