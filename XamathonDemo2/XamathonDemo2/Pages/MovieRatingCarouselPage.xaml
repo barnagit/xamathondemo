@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:InfoFrame.Controls;assembly=XamathonDemo2"
              x:Class="XamathonDemo2.Pages.MovieRatingCarouselPage">
     <ContentPage>
         <ActivityIndicator Grid.RowSpan="2"
@@ -16,6 +17,7 @@
                 <StackLayout>
                     <Label Text="{Binding Movie.Title}" FontSize="Medium" HorizontalOptions="Center" />
                     <Label Text="{Binding Movie.ReleaseDate}" FontSize="Medium" HorizontalOptions="Center" />
+                    <local:RatingControl x:Name="rating" Value="{Binding Rating.Value}"/>
                 </StackLayout>
             </ContentPage>
         </DataTemplate>

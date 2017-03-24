@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:InfoFrame.Controls.Extensions;assembly=XamathonDemo2"
+             x:Class="InfoFrame.Controls.RatingControl">
+  <Grid x:Name="LayoutRoot" VerticalOptions="Center" HorizontalOptions="Center">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="Auto"/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+
+    <Image Grid.Column="0"
+           Source="{extensions:ImageResource InfoFrame.Controls.Images.Rating.StarEmpty.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="0" IsVisible="False"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarFill.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="1"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="1" IsVisible="False"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarFill.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="2"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="2" IsVisible="False"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarFill.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="3"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="3" IsVisible="False"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarFill.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="4"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarEmpty.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+    <Image Grid.Column="4" IsVisible="False"
+           Source="{extensions:ImageResource XamathonDemo2.Controls.Images.Rating.StarFill.png}">
+      <Image.WidthRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.WidthRequest>
+      <Image.HeightRequest>
+        <OnPlatform x:TypeArguments="x:Double" WinPhone="60" Android="40" iOS="40"/>
+      </Image.HeightRequest>
+      <Image.GestureRecognizers>
+        <TapGestureRecognizer Tapped="ItemTapped"/>
+      </Image.GestureRecognizers>
+    </Image>
+  </Grid>
+</ContentView>
